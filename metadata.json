@@ -1,0 +1,6 @@
+{
+  "name": "Aura Music AI",
+  "description": "An intelligent AI-powered music platform combining streaming, AI DJ, Pomodoro study mode, music learning, real-time audio filters, social networking, and real-time lyrics analysis.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

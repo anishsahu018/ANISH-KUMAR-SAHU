@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Base resets & elegant elements */
+body {
+  background-color: #000000;
+  color: #ffffff;
+  overflow-y: hidden; /* We want a fixed application layout scrollable inside grids like Spotify */
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* HIGH-INTENSITY LIGHT THEME DEFINITION */
+.light {
+  --color-bg-base: #fafafb;
+  --color-bg-container: #ffffff;
+  --color-bg-panel: #f4f4f5;
+  --color-bg-panel-hover: #e4e4e7;
+  --color-border: #e4e4e7;
+  --color-text-main: #09090b;
+  --color-text-sub: #71717a;
+}
+
+.light body {
+  background-color: var(--color-bg-base) !important;
+  color: var(--color-text-main) !important;
+}
+
+/* Main Container Override */
+.light .h-screen.w-screen {
+  background-color: var(--color-bg-base) !important;
+  color: var(--color-text-main) !important;
+}
+
+/* Sidebar aside background override */
+.light aside {
+  background-color: var(--color-bg-container) !important;
+  border-color: var(--color-border) !important;
+}
+
+/* Sidebar elements styles */
+.light aside h1,
+.light aside h2,
+.light aside h3,
+.light aside h4,
+.light aside button,
+.light aside span,
+.light aside p {
+  color: var(--color-text-main) !important;
+}
+.light aside .text-zinc-400,
+.light aside .text-zinc-500 {
+  color: var(--color-text-sub) !important;
+}
+.light aside .bg-zinc-900 {
+  background-color: var(--color-bg-panel) !important;
+  border-color: var(--color-border) !important;
+}
+
+/* Main content area */
+.light main, 
+.light .flex-1.overflow-y-auto {
+  background-color: var(--color-bg-base) !important;
+  color: var(--color-text-main) !important;
+}
+
+/* Scrollbars in light mode */
+.light .spotify-scrollbar::-webkit-scrollbar-thumb {
+  background: #d4d4d8 !important;
+}
+.light .spotify-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa !important;
+}
+
+/* Cards & general surface panels */
+.light .bg-zinc-900,
+.light .bg-zinc-900\/40,
+.light .bg-zinc-950,
+.light .bg-zinc-950\/80,
+.light .bg-zinc-950\/50,
+.light .bg-zinc-900\/65,
+.light .bg-zinc-900\/50,
+.light .bg-black\/40,
+.light .bg-zinc-900\/20,
+.light .bg-zinc-950\/40,
+.light .bg-zinc-950\/60,
+.light .bg-black\/60,
+.light .bg-\[\#121212\],
+.light .bg-\[\#0a0a0a\],
+.light .bg-\[\#090909\] {
+  background-color: var(--color-bg-container) !important;
+  color: var(--color-text-main) !important;
+}
+
+/* Interactive elements */
+.light .hover\:bg-zinc-900\/40:hover,
+.light .hover\:bg-zinc-800:hover,
+.light .hover\:bg-zinc-900:hover,
+.light .hover\:bg-zinc-950:hover,
+.light .hover\:bg-black\/50:hover,
+.light .glass-interactive:hover {
+  background-color: var(--color-bg-panel-hover) !important;
+}
+
+/* Borders */
+.light .border-zinc-900,
+.light .border-zinc-850,
+.light .border-zinc-800,
+.light .border-zinc-800\/80,
+.light .border-zinc-900\/40,
+.light .border-zinc-900\/60,
+.light .border-zinc-850\/60,
+.light .border-zinc-905,
+.light .border-zinc-950,
+.light .border-white\/5,
+.light .border-white\/10 {
+  border-color: var(--color-border) !important;
+}
+
+/* Text adjustments for readable states */
+.light .text-white,
+.light .text-slate-100,
+.light .text-zinc-100,
+.light .text-zinc-200,
+.light .text-white\/90 {
+  color: var(--color-text-main) !important;
+}
+
+.light .text-zinc-400,
+.light .text-zinc-300,
+.light .text-zinc-500,
+.light .text-slate-400,
+.light .text-slate-300,
+.light .text-zinc-500\/80,
+.light .text-white\/60,
+.light .text-zinc-550 {
+  color: var(--color-text-sub) !important;
+}
+
+/* Deck Player controls at bottom bar */
+.light .bg-zinc-950.border-t {
+  background-color: var(--color-bg-container) !important;
+  border-color: var(--color-border) !important;
+}
+
+/* Modals & Dialog overlays */
+.light .bg-zinc-950\/95,
+.light .bg-zinc-900\/90 {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  border-color: var(--color-border) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Form controls */
+.light input,
+.light select,
+.light textarea {
+  background-color: var(--color-bg-container) !important;
+  color: var(--color-text-main) !important;
+  border-color: var(--color-border) !important;
+}
+
+.light input::placeholder,
+.light textarea::placeholder {
+  color: var(--color-text-sub) !important;
+  opacity: 0.6;
+}
+
+/* Custom background glow */
+.light .aura-gradient {
+  background: radial-gradient(circle at 50% 50%, var(--color-accent) 0%, transparent 70%) !important;
+  opacity: 0.08 !important;
+}
+
+/* Dynamic Glass overlay adjustments */
+.light .glass {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border-color: var(--color-border) !important;
+}
+
+/* DYNAMIC ACCENT HIGHLIGHTS MAPPER */
+/* Globally redirects hardcoded hex "#1db954" (and hover variant "#1ed760") to the settings-driven variable */
+.text-\[\#1db954\],
+.text-\[\#1db954\]\/90 {
+  color: var(--color-accent) !important;
+}
+.hover\:text-\[\#1db954\]:hover {
+  color: var(--color-accent) !important;
+}
+.bg-\[\#1db954\] {
+  background-color: var(--color-accent) !important;
+  color: #000000 !important; /* Keep text high contrast on accent background */
+}
+.bg-\[\#1db954\]\/10 {
+  background-color: rgba(var(--color-accent-rgb), 0.1) !important;
+}
+.bg-\[\#1db954\]\/20 {
+  background-color: rgba(var(--color-accent-rgb), 0.2) !important;
+}
+.hover\:bg-\[\#1db954\]:hover {
+  background-color: var(--color-accent) !important;
+  color: #000000 !important;
+}
+.border-\[\#1db954\] {
+  border-color: var(--color-accent) !important;
+}
+.border-\[\#1db954\]\/30 {
+  border-color: rgba(var(--color-accent-rgb), 0.3) !important;
+}
+.hover\:border-\[\#1db954\]:hover {
+  border-color: var(--color-accent) !important;
+}
+.shadow-\[\#1db954\]\/20 {
+  box-shadow: 0 10px 15px -3px rgba(var(--color-accent-rgb), 0.2), 0 4px 6px -4px rgba(var(--color-accent-rgb), 0.2) !important;
+}
+.shadow-\[\#1db954\]\/40 {
+  box-shadow: 0 10px 15px -3px rgba(var(--color-accent-rgb), 0.4), 0 4px 6px -4px rgba(var(--color-accent-rgb), 0.4) !important;
+}
+.drop-shadow-\[0_0_8px_\#1db954\] {
+  filter: drop-shadow(0 0 8px var(--color-accent)) !important;
+}
+.drop-shadow-\[0_0_5px_\#1db954\] {
+  filter: drop-shadow(0 0 5px var(--color-accent)) !important;
+}
+.drop-shadow-\[0_0_10px_\#1db954\] {
+  filter: drop-shadow(0 0 10px var(--color-accent)) !important;
+}
+.selection\:bg-\[\#1db954\]::selection {
+  background-color: var(--color-accent) !important;
+  color: #000000 !important;
+}
+.group-hover\/nav\:text-\[\#1db954\]:hover {
+  color: var(--color-accent) !important;
+}
+
+/* Hover Accent #1ed760 mapping classes */
+.hover\:bg-\[\#1ed760\]:hover,
+.bg-\[\#1ed760\] {
+  background-color: var(--color-accent-hover) !important;
+}
+.text-\[\#1ed760\] {
+  color: var(--color-accent-hover) !important;
+}
+
+/* Selector & interactive indicators */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent) !important;
+  box-shadow: 0 0 12px var(--color-accent) !important;
+}
+
+/* Spotify-inspired Scrollbars */
+.spotify-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.spotify-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.spotify-scrollbar::-webkit-scrollbar-thumb {
+  background: #3e3e3e;
+  border-radius: 4px;
+}
+.spotify-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #5a5a5a;
+}
+
+/* Beautiful custom glass backdrop filter panel */
+.glass {
+  background: rgba(18, 18, 18, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-interactive:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Ambient radial glow elements */
+.aura-gradient {
+  background: radial-gradient(circle at 40% 40%, var(--color-accent) 0%, transparent 70%) !important;
+  opacity: 0.14;
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 800px;
+  height: 800px;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Custom grid columns classes for the drum machine sequencer step array */
+.grid-cols-16 {
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0.1;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+
